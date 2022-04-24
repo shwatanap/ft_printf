@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 17:19:55 by shwatana          #+#    #+#             */
-/*   Updated: 2022/04/24 02:49:26 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/04/24 10:38:37 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	ft_printf(const char *format, ...)
 	{
 		start = format;
 		if (*format == '%')
-			printed_cnt = ft_parse(&start, &format, &ap);
+			printed_cnt += ft_parse(&start, &format, &ap);
 		else
 		{
 			write(STDOUT_FILENO, format, 1);

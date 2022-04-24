@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 19:23:29 by shwatana          #+#    #+#             */
-/*   Updated: 2022/04/24 10:24:14 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/04/24 10:38:09 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,9 +38,9 @@ int	ft_convert(const char **start, const char **format, va_list *ap,
 	fd = STDOUT_FILENO;
 	printed_cnt = 0;
 	if (specifier == C)
-		printed_cnt = ft_print_c(fd, va_arg(*ap, int));
+		printed_cnt += ft_print_c(fd, (char)va_arg(*ap, int));
 	else if (specifier == S)
-		printed_cnt = ft_print_s(fd, va_arg(*ap, char *));
+		printed_cnt += ft_print_s(fd, (char *)va_arg(*ap, char *));
 	else if (specifier == P)
 		printf("p");
 	else if (specifier == D)
@@ -58,5 +58,5 @@ int	ft_convert(const char **start, const char **format, va_list *ap,
 	else
 		printf("else");
 	(*format)++;
-	return (printed_cnt + 1);
+	return (printed_cnt);
 }
