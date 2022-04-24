@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 17:16:19 by shwatana          #+#    #+#             */
-/*   Updated: 2022/04/24 10:17:22 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/04/24 11:16:20 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,10 +44,10 @@ int		ft_printf(const char *format, ...);
 int		ft_parse(const char **start, const char **format, va_list *ap);
 
 // ft_print_c.c
-int		ft_print_c(int fd, char c);
+int		ft_print_c(int fd, va_list *ap);
 
 // ft_print_s.c
-int		ft_print_s(int fd, char *str);
+int		ft_print_s(int fd, va_list *ap);
 
 // ft_printf_utils.c
 ssize_t	ft_strchr_idx(char *str, char c);
