@@ -1,4 +1,4 @@
-SRCS	 = ft_printf.c ft_parse.c ft_print_c.c ft_printf_utils.c
+SRCS	 = ft_printf.c ft_parse.c ft_print_c.c ft_print_s.c ft_printf_utils.c
 OBJS	 = $(SRCS:.c=.o)
 CC		 = cc
 NAME	 = libftprintf.a
@@ -18,6 +18,9 @@ fclean: clean
 	$(RM) $(NAME)
 
 re: fclean all
+
+norm:
+	norminette $(SRCS)
 
 debug: $(NAME)
 	$(CC) main.c $(NAME)
