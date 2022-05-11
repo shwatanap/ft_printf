@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 17:19:55 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/11 19:19:52 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/12 01:45:55 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int	ft_printf(const char *format, ...)
 			printed_cnt += ft_parse(&format, &ap);
 		else
 		{
-			write(STDOUT_FILENO, format, 1);
+			ft_putchr_fd(*format, STDOUT_FILENO);
 			format++;
 			printed_cnt++;
 		}
