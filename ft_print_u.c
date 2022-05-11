@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 12:14:12 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/11 21:34:09 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/12 01:33:52 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ int	ft_putnbr_u(int fd, unsigned int n);
 
 int	ft_print_u(int fd, va_list *ap)
 {
-	int			print_cnt;
-	long long	n;
+	int				print_cnt;
+	unsigned int	n;
 
-	n = (long long)va_arg(*ap, void *);
-	print_cnt = ft_putnbr_u(fd, (unsigned int)n);
+	n = (unsigned int)va_arg(*ap, unsigned int);
+	print_cnt = ft_putnbr_u(fd, n);
 	return (print_cnt);
 }
 

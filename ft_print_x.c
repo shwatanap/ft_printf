@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 11:06:16 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/11 21:34:37 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/12 01:33:44 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ static int	ft_putnbr_hex_rec(int fd, unsigned int n, t_specifier specifier);
 
 int	ft_putnbr_hex(int fd, va_list *ap, t_specifier specifier)
 {
-	int					print_cnt;
-	unsigned long long	n;
+	int				print_cnt;
+	unsigned int	n;
 
-	n = (unsigned long long)va_arg(*ap, void *);
+	n = (unsigned int)va_arg(*ap, unsigned int);
 	print_cnt = ft_putnbr_hex_rec(fd, n, specifier);
 	return (print_cnt);
 }
