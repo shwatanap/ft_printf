@@ -6,13 +6,13 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 19:23:29 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/11 19:20:13 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/11 21:15:02 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_convert(const char **format, va_list *ap, t_specifier specifier);
+int	ft_convert(va_list *ap, t_specifier specifier);
 
 int	ft_parse(const char **format, va_list *ap)
 {
@@ -21,11 +21,18 @@ int	ft_parse(const char **format, va_list *ap)
 
 	(*format)++;
 	specifier = (t_specifier)ft_strchr_idx(SPECIFIER, **format);
-	printed_cnt = ft_convert(format, ap, specifier);
+	if (specifier == NO)
+	{
+		write(STDOUT_FILENO, *format, sizeof(char));
+		printed_cnt = 1;
+	}
+	else
+		printed_cnt = ft_convert(ap, specifier);
+	(*format)++;
 	return (printed_cnt);
 }
 
-int	ft_convert(const char **format, va_list *ap, t_specifier specifier)
+int	ft_convert(va_list *ap, t_specifier specifier)
 {
 	int	printed_cnt;
 
@@ -46,6 +53,5 @@ int	ft_convert(const char **format, va_list *ap, t_specifier specifier)
 		printed_cnt += ft_putnbr_hex(STDOUT_FILENO, ap, specifier);
 	else if (specifier == PER)
 		printed_cnt += ft_print_per(STDOUT_FILENO);
-	(*format)++;
 	return (printed_cnt);
 }
