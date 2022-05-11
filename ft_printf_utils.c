@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 10:49:39 by shwatana          #+#    #+#             */
-/*   Updated: 2022/04/24 10:15:04 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/11 18:36:57 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,4 +34,20 @@ size_t	ft_strlen(const char *s)
 	while (s[i] != '\0')
 		i++;
 	return (i);
+}
+
+void	ft_putstr_fd(char *str, int fd)
+{
+	size_t	len;
+
+	if (str == NULL)
+		return ;
+	len = ft_strlen(str);
+	while (INT_MAX < len)
+	{
+		write(fd, str, INT_MAX);
+		str += INT_MAX;
+		len -= INT_MAX;
+	}
+	write(fd, str, len);
 }
