@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 17:16:19 by shwatana          #+#    #+#             */
-/*   Updated: 2022/04/24 11:16:20 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/11 12:16:34 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@
 
 # define FAIL -1
 # define SPECIFIER "cspdiuxX%"
+# define SMALL_HEX "0123456789abcdef"
+# define LARGE_HEX "0123456789ABCDEF"
 
 typedef enum e_specifier
 {
@@ -48,6 +50,15 @@ int		ft_print_c(int fd, va_list *ap);
 
 // ft_print_s.c
 int		ft_print_s(int fd, va_list *ap);
+
+// ft_print_p.c
+int		ft_print_p(int fd, va_list *ap);
+
+// ft_print_u.c
+int		ft_print_u(int fd, va_list *ap);
+
+// ft_print_x.c
+int		ft_putnbr_hex(int fd, va_list *ap, t_specifier specifier);
 
 // ft_printf_utils.c
 ssize_t	ft_strchr_idx(char *str, char c);
