@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 17:16:19 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/12 00:57:24 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/12 01:16:08 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ int		ft_putnbr_hex(int fd, va_list *ap, t_specifier specifier);
 // ft_printf_utils.c
 ssize_t	ft_strchr_idx(char *str, char c);
 size_t	ft_strlen(const char *s);
-void	ft_putstr_fd(char *str, int fd);
+ssize_t	ft_putstr_fd(char *str, int fd);
 void	ft_putchr_fd(char c, int fd);
 
 #endif

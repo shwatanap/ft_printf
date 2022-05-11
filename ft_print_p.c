@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 11:06:16 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/11 21:30:50 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/12 01:16:38 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,7 @@ int	ft_print_p(int fd, va_list *ap)
 	int					print_cnt;
 	unsigned long long	n;
 
-	print_cnt = 2;
-	ft_putstr_fd("0x", fd);
+	print_cnt = (int)ft_putstr_fd("0x", fd);
 	n = (unsigned long long)va_arg(*ap, void *);
 	print_cnt += ft_putnbr_hex_rec_ull(fd, n, SX);
 	return (print_cnt);
