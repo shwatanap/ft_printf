@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 19:23:29 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/11 12:18:14 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/11 17:12:51 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_convert(const char **format, va_list *ap, t_specifier specifier)
 	else if (specifier == P)
 		printed_cnt += ft_print_p(STDOUT_FILENO, ap);
 	else if (specifier == D)
-		printf("d");
+		printed_cnt += ft_print_d(STDOUT_FILENO, ap);
 	else if (specifier == I)
 		printf("i");
 	else if (specifier == U)
