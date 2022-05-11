@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 10:49:39 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/11 18:36:57 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/11 21:21:18 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,4 +50,9 @@ void	ft_putstr_fd(char *str, int fd)
 		len -= INT_MAX;
 	}
 	write(fd, str, len);
+}
+
+void	ft_putchr_fd(char c, int fd)
+{
+	write(fd, &c, sizeof(char));
 }
