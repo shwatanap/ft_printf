@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 19:23:29 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/11 21:15:02 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/11 21:26:32 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	ft_parse(const char **format, va_list *ap)
 	specifier = (t_specifier)ft_strchr_idx(SPECIFIER, **format);
 	if (specifier == NO)
 	{
-		write(STDOUT_FILENO, *format, sizeof(char));
+		ft_putchr_fd(**format, STDOUT_FILENO);
 		printed_cnt = 1;
 	}
 	else

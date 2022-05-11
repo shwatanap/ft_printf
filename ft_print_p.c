@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 11:06:16 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/11 15:36:21 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/11 21:30:50 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_print_p(int fd, va_list *ap)
 	unsigned long long	n;
 
 	print_cnt = 2;
-	write(fd, "0x", sizeof(char) * 2);
+	ft_putstr_fd("0x", fd);
 	n = (unsigned long long)va_arg(*ap, void *);
 	print_cnt += ft_putnbr_hex_rec_ull(fd, n, SX);
 	return (print_cnt);
@@ -55,5 +55,5 @@ static void	ft_put_hex_ull(int fd, unsigned long long n, t_specifier specifier)
 		c = LARGE_HEX[n];
 	else
 		return ;
-	write(fd, &c, sizeof(char));
+	ft_putchr_fd(c, fd);
 }

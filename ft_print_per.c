@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 10:12:17 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/11 18:54:46 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/11 21:31:39 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,6 @@
 
 int	ft_print_per(int fd)
 {
-	char	c;
-
-	c = '%';
-	write(fd, &c, sizeof(char));
+	ft_putchr_fd('%', fd);
 	return (1);
 }

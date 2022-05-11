@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 11:06:16 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/11 15:07:37 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/11 21:34:37 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,5 @@ static void	ft_put_hex(int fd, int n, t_specifier specifier)
 		c = LARGE_HEX[n];
 	else
 		return ;
-	write(fd, &c, sizeof(char));
+	ft_putchr_fd(c, fd);
 }

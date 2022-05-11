@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 16:02:02 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/11 18:40:28 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/11 21:27:34 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,7 @@ int	ft_print_d(int fd, va_list *ap)
 
 int	ft_putnbr_fd(int n, int fd)
 {
-	int		print_num;
-	char	c;
+	int	print_num;
 
 	print_num = 1;
 	if (n == INT_MIN)
@@ -37,22 +36,17 @@ int	ft_putnbr_fd(int n, int fd)
 	}
 	else if (n < 0)
 	{
-		c = '-';
-		write(fd, &c, sizeof(char));
+		ft_putchr_fd('-', fd);
 		print_num = ft_putnbr_fd((n * -1), fd);
 		print_num++;
 	}
 	else if (n >= 10)
 	{
 		print_num = ft_putnbr_fd((n / 10), fd);
-		c = (n % 10 + '0');
-		write(fd, &c, sizeof(char));
+		ft_putchr_fd(n % 10 + '0', fd);
 		print_num++;
 	}
 	else
-	{
-		c = (n + '0');
-		write(fd, &c, sizeof(char));
-	}
+		ft_putchr_fd(n + '0', fd);
 	return (print_num);
 }
