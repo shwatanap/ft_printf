@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 19:23:29 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/11 18:53:26 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/11 19:20:13 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,11 @@
 
 int	ft_convert(const char **format, va_list *ap, t_specifier specifier);
 
-int	ft_parse(const char **start, const char **format, va_list *ap)
+int	ft_parse(const char **format, va_list *ap)
 {
 	t_specifier	specifier;
 	int			printed_cnt;
 
-	(void)ap;
-	(void)start;
 	(*format)++;
 	specifier = (t_specifier)ft_strchr_idx(SPECIFIER, **format);
 	printed_cnt = ft_convert(format, ap, specifier);

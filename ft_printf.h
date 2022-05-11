@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 17:16:19 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/11 18:52:40 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/11 19:19:22 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ typedef enum e_specifier
 int		ft_printf(const char *format, ...);
 
 // ft_parse.c
-int		ft_parse(const char **start, const char **format, va_list *ap);
+int		ft_parse(const char **format, va_list *ap);
 
 // ft_print_c.c
 int		ft_print_c(int fd, va_list *ap);
