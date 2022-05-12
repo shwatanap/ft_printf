@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_print_s.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/04/20 17:19:55 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/12 01:45:55 by shwatana         ###   ########.fr       */
+/*   Created: 2022/04/24 10:12:17 by shwatana          #+#    #+#             */
+/*   Updated: 2022/05/12 01:17:20 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printf(const char *format, ...)
+int	ft_print_s(int fd, va_list *ap)
 {
-	va_list	ap;
-	int		printed_cnt;
+	ssize_t	len;
+	char	*str;
 
-	printed_cnt = 0;
-	va_start(ap, format);
-	if (format == NULL)
-		printed_cnt = -1;
-	while (*format)
+	str = (char *)va_arg(*ap, char *);
+	if (str == NULL)
 	{
-		if (*format == '%')
-			printed_cnt += ft_parse(&format, &ap);
-		else
-		{
-			ft_putchr_fd(*format, STDOUT_FILENO);
-			format++;
-			printed_cnt++;
-		}
+		len = ft_putstr_fd("(null)", fd);
+		return ((int)len);
 	}
-	va_end(ap);
-	return (printed_cnt);
+	len = ft_putstr_fd(str, fd);
+	return ((int)len);
 }

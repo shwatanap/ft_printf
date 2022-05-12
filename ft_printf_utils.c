@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 10:49:39 by shwatana          #+#    #+#             */
-/*   Updated: 2022/04/24 09:19:35 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/12 01:09:27 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,4 +24,38 @@ ssize_t	ft_strchr_idx(char *str, char c)
 		i++;
 	}
 	return (FAIL);
+}
+
+size_t	ft_strlen(const char *s)
+{
+	size_t	i;
+
+	i = 0;
+	while (s[i] != '\0')
+		i++;
+	return (i);
+}
+
+ssize_t	ft_putstr_fd(char *str, int fd)
+{
+	size_t	len;
+	size_t	result;
+
+	if (str == NULL)
+		return (-1);
+	len = ft_strlen(str);
+	result = len;
+	while (INT_MAX < len)
+	{
+		write(fd, str, INT_MAX);
+		str += INT_MAX;
+		len -= INT_MAX;
+	}
+	write(fd, str, len);
+	return (result);
+}
+
+void	ft_putchr_fd(char c, int fd)
+{
+	write(fd, &c, sizeof(char));
 }

@@ -6,53 +6,52 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 19:23:29 by shwatana          #+#    #+#             */
-/*   Updated: 2022/04/24 09:19:26 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/11 21:26:32 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_convert(const char **start, const char **format, va_list *ap,
-		t_specifier specifier);
+int	ft_convert(va_list *ap, t_specifier specifier);
 
-int	ft_parse(const char **start, const char **format, va_list *ap)
+int	ft_parse(const char **format, va_list *ap)
 {
 	t_specifier	specifier;
 	int			printed_cnt;
 
-	(void)ap;
-	(void)start;
 	(*format)++;
 	specifier = (t_specifier)ft_strchr_idx(SPECIFIER, **format);
-	printed_cnt = ft_convert(start, format, ap, specifier);
+	if (specifier == NO)
+	{
+		ft_putchr_fd(**format, STDOUT_FILENO);
+		printed_cnt = 1;
+	}
+	else
+		printed_cnt = ft_convert(ap, specifier);
+	(*format)++;
 	return (printed_cnt);
 }
 
-int	ft_convert(const char **start, const char **format, va_list *ap,
-		t_specifier specifier)
+int	ft_convert(va_list *ap, t_specifier specifier)
 {
-	(void)ap;
-	(void)start;
+	int	printed_cnt;
+
+	printed_cnt = 0;
 	if (specifier == C)
-		printf("c");
+		printed_cnt += ft_print_c(STDOUT_FILENO, ap);
 	else if (specifier == S)
-		printf("s");
+		printed_cnt += ft_print_s(STDOUT_FILENO, ap);
 	else if (specifier == P)
-		printf("p");
-	else if (specifier == D)
-		printf("d");
-	else if (specifier == I)
-		printf("i");
+		printed_cnt += ft_print_p(STDOUT_FILENO, ap);
+	else if (specifier == D || specifier == I)
+		printed_cnt += ft_print_d(STDOUT_FILENO, ap);
 	else if (specifier == U)
-		printf("u");
+		printed_cnt += ft_print_u(STDOUT_FILENO, ap);
 	else if (specifier == SX)
-		printf("sx");
+		printed_cnt += ft_putnbr_hex(STDOUT_FILENO, ap, specifier);
 	else if (specifier == LX)
-		printf("lx");
+		printed_cnt += ft_putnbr_hex(STDOUT_FILENO, ap, specifier);
 	else if (specifier == PER)
-		printf("per");
-	else
-		printf("else");
-	(*format)++;
-	return (2);
+		printed_cnt += ft_print_per(STDOUT_FILENO);
+	return (printed_cnt);
 }
