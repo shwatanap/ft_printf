@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 11:06:16 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/12 01:16:38 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/12 17:39:51 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,16 +32,14 @@ static int	ft_putnbr_hex_rec_ull(int fd, unsigned long long n,
 {
 	int	print_cnt;
 
-	print_cnt = 1;
 	if (n < 16)
-		ft_put_hex_ull(fd, n, specifier);
-	else
 	{
-		print_cnt = ft_putnbr_hex_rec_ull(fd, n / 16, specifier);
-		ft_putnbr_hex_rec_ull(fd, n % 16, specifier);
-		print_cnt++;
+		ft_put_hex_ull(fd, n, specifier);
+		return (1);
 	}
-	return (print_cnt);
+	print_cnt = ft_putnbr_hex_rec_ull(fd, n / 16, specifier);
+	ft_putnbr_hex_rec_ull(fd, n % 16, specifier);
+	return (print_cnt + 1);
 }
 
 static void	ft_put_hex_ull(int fd, unsigned long long n, t_specifier specifier)
