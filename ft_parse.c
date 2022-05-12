@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 19:23:29 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/11 21:26:32 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/12 17:43:17 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,9 +48,9 @@ int	ft_convert(va_list *ap, t_specifier specifier)
 	else if (specifier == U)
 		printed_cnt += ft_print_u(STDOUT_FILENO, ap);
 	else if (specifier == SX)
-		printed_cnt += ft_putnbr_hex(STDOUT_FILENO, ap, specifier);
+		printed_cnt += ft_print_x(STDOUT_FILENO, ap, specifier);
 	else if (specifier == LX)
-		printed_cnt += ft_putnbr_hex(STDOUT_FILENO, ap, specifier);
+		printed_cnt += ft_print_x(STDOUT_FILENO, ap, specifier);
 	else if (specifier == PER)
 		printed_cnt += ft_print_per(STDOUT_FILENO);
 	return (printed_cnt);

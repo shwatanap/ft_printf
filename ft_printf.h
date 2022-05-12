@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 17:16:19 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/12 01:16:08 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/12 17:41:03 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ int		ft_print_p(int fd, va_list *ap);
 int		ft_print_u(int fd, va_list *ap);
 
 // ft_print_x.c
-int		ft_putnbr_hex(int fd, va_list *ap, t_specifier specifier);
+int		ft_print_x(int fd, va_list *ap, t_specifier specifier);
 
 // ft_printf_utils.c
 ssize_t	ft_strchr_idx(char *str, char c);
