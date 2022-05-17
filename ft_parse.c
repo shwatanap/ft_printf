@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/22 19:23:29 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/16 12:21:57 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/17 17:53:12 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,5 +50,5 @@ int	ft_convert(va_list *ap, t_specifier specifier)
 		return (ft_print_x(STDOUT_FILENO, ap, specifier));
 	else if (specifier == PER)
 		return (ft_print_per(STDOUT_FILENO));
-	return (-1);
+	return (FAIL);
 }

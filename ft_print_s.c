@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/24 10:12:17 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/16 12:25:45 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/17 17:53:21 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,6 @@ int	ft_print_s(int fd, va_list *ap)
 	}
 	len = ft_putstr_fd(str, fd);
 	if (len < 0 || INT_MAX < len)
-		return (-1);
+		return (FAIL);
 	return ((int)len);
 }
