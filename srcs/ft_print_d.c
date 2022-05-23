@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/05/11 16:02:02 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/12 01:17:43 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/23 11:19:27 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_putnbr_fd(int n, int fd)
 	print_num = 1;
 	if (n == INT_MIN)
 	{
-		print_num = (int)ft_putstr_fd("-2147483648", fd);
+		print_num = (int)ft_putstr_fd_with_len("-2147483648", fd);
 		return (print_num);
 	}
 	else if (n < 0)
