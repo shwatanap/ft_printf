@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 17:19:55 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/22 12:42:01 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/23 10:42:51 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,6 +41,30 @@ int	ft_printf(int fd, const char *format, ...)
 			return (FAIL);
 	}
 	va_end(ap);
+	return (printed_cnt);
+}
+
+int	ft_vprintf(int fd, const char *format, va_list *ap)
+{
+	int	printed_cnt;
+	int	print_cnt;
+
+	if (format == NULL)
+		return (FAIL);
+	printed_cnt = 0;
+	while (*format)
+	{
+		if (*format == '%')
+		{
+			print_cnt = ft_parse(&format, ap, fd);
+			if (overflow_check(printed_cnt, print_cnt))
+				return (va_end_and_return(ap));
+			printed_cnt += print_cnt;
+			continue ;
+		}
+		if (!simple_print(&format, ap, &printed_cnt, fd))
+			return (FAIL);
+	}
 	return (printed_cnt);
 }
 
