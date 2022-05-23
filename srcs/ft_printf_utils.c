@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/23 10:49:39 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/17 17:53:41 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/05/23 11:19:27 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-ssize_t	ft_putstr_fd(char *str, int fd)
+ssize_t	ft_putstr_fd_with_len(char *str, int fd)
 {
 	size_t	len;
 	size_t	result;
