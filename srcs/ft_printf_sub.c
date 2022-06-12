@@ -16,7 +16,7 @@ bool	simple_print(const char **format, va_list *ap, int *printed_cnt, int fd)
 {
 	ft_putchr_fd(**format, fd);
 	(*format)++;
-	if (overflow_check(*printed_cnt, 1))
+	if (printf_overflow_check(*printed_cnt, 1))
 	{
 		va_end(*ap);
 		return (false);

@@ -12,11 +12,6 @@
 
 #include "ft_printf.h"
 
-static bool	overflow_check(int augend, int addend);
-static int	va_end_and_return(va_list *ap);
-static bool	simple_print(const char **format, va_list *ap, int *printed_cnt,
-				int fd);
-
 int	ft_printf(const char *format, ...)
 {
 	va_list	ap;
@@ -32,7 +27,7 @@ int	ft_printf(const char *format, ...)
 		if (*format == '%')
 		{
 			print_cnt = ft_parse(&format, &ap, STDOUT_FILENO);
-			if (overflow_check(printed_cnt, print_cnt))
+			if (printf_overflow_check(printed_cnt, print_cnt))
 				return (va_end_and_return(&ap));
 			printed_cnt += print_cnt;
 			continue ;
@@ -59,7 +54,7 @@ int	ft_dprintf(int fd, const char *format, ...)
 		if (*format == '%')
 		{
 			print_cnt = ft_parse(&format, &ap, fd);
-			if (overflow_check(printed_cnt, print_cnt))
+			if (printf_overflow_check(printed_cnt, print_cnt))
 				return (va_end_and_return(&ap));
 			printed_cnt += print_cnt;
 			continue ;
@@ -84,7 +79,7 @@ int	ft_vprintf(int fd, const char *format, va_list *ap)
 		if (*format == '%')
 		{
 			print_cnt = ft_parse(&format, ap, fd);
-			if (overflow_check(printed_cnt, print_cnt))
+			if (printf_overflow_check(printed_cnt, print_cnt))
 				return (va_end_and_return(ap));
 			printed_cnt += print_cnt;
 			continue ;
