@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 17:16:19 by shwatana          #+#    #+#             */
-/*   Updated: 2022/05/23 11:19:27 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/06/12 17:11:58 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,10 @@ typedef enum e_specifier
 }		t_specifier;
 
 // ft_printf.c
-int		ft_printf(int fd, const char *format, ...) __attribute__((format(printf,
-					2, 3)));
+int		ft_printf(const char *format, ...)
+		__attribute__((format(printf, 1, 2)));
+int		ft_dprintf(int fd, const char *format, ...)
+		__attribute__((format(printf, 2, 3)));
 int		ft_vprintf(int fd, const char *format, va_list *ap);
 
 // ft_parse.c
@@ -73,5 +75,11 @@ ssize_t	ft_strchr_idx(char *str, char c);
 size_t	ft_strlen(const char *s);
 ssize_t	ft_putstr_fd_with_len(char *str, int fd);
 void	ft_putchr_fd(char c, int fd);
+
+// ft_printf_sub.c
+bool	simple_print(const char **format, va_list *ap, int *printed_cnt,
+			int fd);
+bool	printf_overflow_check(int augend, int addend);
+int		va_end_and_return(va_list *ap);
 
 #endif
