@@ -6,7 +6,7 @@
 /*   By: shwatana <shwatana@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/04/20 17:16:19 by shwatana          #+#    #+#             */
-/*   Updated: 2022/06/14 15:03:04 by shwatana         ###   ########.fr       */
+/*   Updated: 2022/06/29 18:46:21 by shwatana         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,6 @@ int		ft_print_u(int fd, va_list *ap);
 int		ft_print_x(int fd, va_list *ap, t_specifier specifier);
 
 // ft_printf_utils.c
-size_t	ft_strlen(const char *s);
 ssize_t	ft_strchr_idx(const char *str, int c);
 ssize_t	ft_putstr_fd_with_len(char *str, int fd);
 void	ft_putchr_fd(char c, int fd);
